@@ -5,7 +5,8 @@ from telebot import types
  from flask import Flask, request
  import os
 
-bot_token = '1172046559:AAHr1UufCkTaYramIStU-7ePYzokfMk84Vc'
+# bot_token = '1172046559:AAHr1UufCkTaYramIStU-7ePYzokfMk84Vc'
+bot_token = process.env.token
  server = Flask(__name__)
 
 
@@ -123,17 +124,17 @@ while True:
         time.sleep(15)
 
 
- @server.route('/' + bot_token, methods=['POST'])
- def getMessage():
-     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-     return "!", 200
+#  @server.route('/' + bot_token, methods=['POST'])
+#  def getMessage():
+#      bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+#      return "!", 200
 
 
- @server.route("/")
- def webhook():
-     bot.remove_webhook()
-     bot.set_webhook(url='https://young-springs-39254.herokuapp.com/' + bot_token)
-     return "!", 200
+#  @server.route("/")
+#  def webhook():
+#      bot.remove_webhook()
+#      bot.set_webhook(url='https://young-springs-39254.herokuapp.com/' + bot_token)
+#      return "!", 200
 
- if __name__ == "__main__":
-     server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+#  if __name__ == "__main__":
+#      server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
