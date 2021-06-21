@@ -47,9 +47,9 @@ def flag_status(uid):
 def send_kiss(message):
     cid = message.chat.id
     if cid ==115619427:
-        bot.send_message(625619975, '💋')
+        bot.send_message(625619975, 'hello')
     elif cid == 625619975:
-        bot.send_message(115619427, '💋')
+        bot.send_message(115619427, 'hello')
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
